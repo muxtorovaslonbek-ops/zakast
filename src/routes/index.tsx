@@ -29,6 +29,7 @@ import chat from "@/assets/chat.png";
 import gift from "@/assets/gift.png";
 import logo from "@/assets/logo.png";
 import { Intro } from "@/components/Intro";
+import { BgSettings } from "@/components/BgSettings";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -83,6 +84,7 @@ function Index() {
   const [dark, setDark] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [intro, setIntro] = useState(false);
+  const [settings, setSettings] = useState(false);
   useEffect(() => {
     const f = () => setZoom(Math.min(window.innerWidth / 1280, 1.5));
     f();
@@ -92,6 +94,7 @@ function Index() {
   return (
     <>
       {intro && <Intro onClose={() => setIntro(false)} />}
+      {settings && <BgSettings onClose={() => setSettings(false)} />}
       <span className="bg-blob left-[30%] top-[10%] h-72 w-72 bg-brand" />
       <span className="bg-blob right-[5%] bottom-[5%] h-80 w-80 bg-brand-glow [animation-delay:-5s]" />
       <div
@@ -132,7 +135,10 @@ function Index() {
               return (
                 <button
                   key={n.label}
-                  onClick={() => setActive(i)}
+                  onClick={() => {
+                    setActive(i);
+                    if (n.label === "Sozlamalar") setSettings(true);
+                  }}
                   className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition duration-300 hover:translate-x-1 cursor-pointer ${
                     active === i
                       ? "bg-brand shadow-soft font-semibold"
