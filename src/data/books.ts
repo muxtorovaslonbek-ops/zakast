@@ -4,7 +4,7 @@ export interface Book {
   author: string; // Muallif
   description: string; // Qisqa ta'rif
   category: string; // Toifa
-  cover: string; // Muqova rasmi: public/kitoblar/muqova/ ichida
+  cover: string; // Muqova rasmi: public/kitoblar/covers/ ichida
   file: string; // PDF fayl: public/kitoblar/ ichida
   accent: string; // Muqova yuklanmasa, fon rangi
 }
@@ -16,7 +16,7 @@ export const books: Book[] = [
     author: "O‘lmas Umarbekov",
     description: "Zamonaviy o‘zbek nasrining mashhur asari.",
     category: "Zamonaviy nasr",
-    cover: "/kitoblar/muqova/odam-bolish-qiyin.jpg",
+    cover: "/kitoblar/covers/odam-bolish-qiyin.jpg",
     file: "/kitoblar/odam-bolish-qiyin.pdf",
     accent: "from-slate-600 to-slate-800",
   },
@@ -26,7 +26,7 @@ export const books: Book[] = [
     author: "O‘tkir Hoshimov",
     description: "O‘tkir Hoshimovning o‘quvchilar sevib o‘qiydigan romani.",
     category: "Roman",
-    cover: "/kitoblar/muqova/ikki-eshik-orasi.jpg",
+    cover: "/kitoblar/covers/ikki-eshik-orasi.jpg",
     file: "/kitoblar/ikki-eshik-orasi.pdf",
     accent: "from-sky-500 to-indigo-700",
   },
@@ -36,7 +36,7 @@ export const books: Book[] = [
     author: "Abdulhamid Cho‘lpon",
     description: "O‘zbek adabiyotining klassik romani.",
     category: "Klassik",
-    cover: "/kitoblar/muqova/kecha-va-kunduz.jpg",
+    cover: "/kitoblar/covers/kecha-va-kunduz.jpg",
     file: "/kitoblar/kecha-va-kunduz.pdf",
     accent: "from-teal-500 to-emerald-700",
   },
@@ -46,7 +46,7 @@ export const books: Book[] = [
     author: "Antuan de Sent-Ekzyuperi",
     description: "Jahon adabiyotining sevimli ertak-qissasi.",
     category: "Jahon adabiyoti",
-    cover: "/kitoblar/muqova/kichkina-shahzoda.jpg",
+    cover: "/kitoblar/covers/kichkina-shahzoda.jpg",
     file: "/kitoblar/kichkina-shahzoda.pdf",
     accent: "from-orange-400 to-rose-600",
   },
