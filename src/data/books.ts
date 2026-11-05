@@ -1,55 +1,55 @@
 export interface Book {
-  id: string; // URL uchun: /kutubxona/kitob-1
-  title: string;
-  author: string;
-  category: string;
-  description: string;
-  pages?: number;
-  cover: string; // /kitoblar/covers/... (public papkasida)
-  file: string; // /kitoblar/... .pdf (public papkasida)
+  id: string; // URL uchun: /kutubxona/ikki-eshik-orasi
+  title: string; // Kitob nomi
+  author: string; // Muallif
+  description: string; // Qisqa ta'rif
+  category: string; // Toifa
+  cover: string; // Muqova rasmi: public/kitoblar/muqova/ ichida
+  file: string; // PDF fayl: public/kitoblar/ ichida
+  accent: string; // Muqova yuklanmasa, fon rangi
 }
 
-// Har bir kitobni shu yerda o'zgartirasiz. Fayl nomlari public/kitoblar/ ichidagi
-// fayllar bilan AYNAN bir xil bo'lishi kerak (katta-kichik harf ham muhim).
 export const books: Book[] = [
   {
-    id: "kitob-1",
-    title: "1-kitob nomi",
-    author: "Muallif ismi",
-    category: "Badiiy adabiyot",
-    description: "Kitob haqida 1-2 gaplik qisqa tavsif.",
-    pages: 200,
-    cover: "/kitoblar/covers/kitob-1.jpg",
-    file: "/kitoblar/kitob-1.pdf",
+    id: "odam-bolish-qiyin",
+    title: "Odam bo‘lish qiyin",
+    author: "O‘lmas Umarbekov",
+    description: "Zamonaviy o‘zbek nasrining mashhur asari.",
+    category: "Zamonaviy nasr",
+    cover: "/kitoblar/muqova/odam-bolish-qiyin.jpg",
+    file: "/kitoblar/odam-bolish-qiyin.pdf",
+    accent: "from-slate-600 to-slate-800",
   },
   {
-    id: "kitob-2",
-    title: "2-kitob nomi",
-    author: "Muallif ismi",
-    category: "Darslik",
-    description: "Kitob haqida 1-2 gaplik qisqa tavsif.",
-    pages: 150,
-    cover: "/kitoblar/covers/kitob-2.jpg",
-    file: "/kitoblar/kitob-2.pdf",
+    id: "ikki-eshik-orasi",
+    title: "Ikki eshik orasi",
+    author: "O‘tkir Hoshimov",
+    description: "O‘tkir Hoshimovning o‘quvchilar sevib o‘qiydigan romani.",
+    category: "Roman",
+    cover: "/kitoblar/muqova/ikki-eshik-orasi.jpg",
+    file: "/kitoblar/ikki-eshik-orasi.pdf",
+    accent: "from-sky-500 to-indigo-700",
   },
   {
-    id: "kitob-3",
-    title: "3-kitob nomi",
-    author: "Muallif ismi",
-    category: "Qo‘llanma",
-    description: "Kitob haqida 1-2 gaplik qisqa tavsif.",
-    pages: 120,
-    cover: "/kitoblar/covers/kitob-3.jpg",
-    file: "/kitoblar/kitob-3.pdf",
+    id: "kecha-va-kunduz",
+    title: "Kecha va kunduz",
+    author: "Abdulhamid Cho‘lpon",
+    description: "O‘zbek adabiyotining klassik romani.",
+    category: "Klassik",
+    cover: "/kitoblar/muqova/kecha-va-kunduz.jpg",
+    file: "/kitoblar/kecha-va-kunduz.pdf",
+    accent: "from-teal-500 to-emerald-700",
   },
   {
-    id: "kitob-4",
-    title: "4-kitob nomi",
-    author: "Muallif ismi",
-    category: "Ilmiy-ommabop",
-    description: "Kitob haqida 1-2 gaplik qisqa tavsif.",
-    pages: 180,
-    cover: "/kitoblar/covers/kitob-4.jpg",
-    file: "/kitoblar/kitob-4.pdf",
+    id: "kichkina-shahzoda",
+    title: "Kichkina shahzoda",
+    author: "Antuan de Sent-Ekzyuperi",
+    description: "Jahon adabiyotining sevimli ertak-qissasi.",
+    category: "Jahon adabiyoti",
+    cover: "/kitoblar/muqova/kichkina-shahzoda.jpg",
+    file: "/kitoblar/kichkina-shahzoda.pdf",
+    accent: "from-orange-400 to-rose-600",
   },
 ];
+
+export const getBook = (id: string) => books.find((b) => b.id === id);
