@@ -55,7 +55,7 @@ const nav = [
   { icon: Bot, label: "AI Ustoz", path: "/ai-ustoz" },
   { icon: Users, label: "To‘garaklar", path: "/togaraklar" },
   { icon: Award, label: "Sertifikatlar", path: "/sertifikatlar" },
-  { icon: BookOpen, label: "Kutubxona" },
+  { icon: BookOpen, label: "Kutubxona", path: "/kutubxona" },
   { icon: Settings, label: "Sozlamalar" },
 ];
 
@@ -359,9 +359,12 @@ function Index() {
                 Faol kutubxona
               </h2>
               <p className="mt-2 w-44 text-sm">Darsliklar, qo‘llanmalar va foydali materiallar</p>
-              <button className="mt-3 flex items-center gap-2 rounded-lg bg-background px-4 py-1.5 text-sm font-semibold shadow-soft">
+              <Link
+                to="/kutubxona"
+                className="mt-3 flex w-fit items-center gap-2 rounded-lg bg-background px-4 py-1.5 text-sm font-semibold shadow-soft cursor-pointer"
+              >
                 O‘tish <ArrowRight className="h-4 w-4" />
-              </button>
+              </Link>
               <img
                 src={books}
                 alt=""
