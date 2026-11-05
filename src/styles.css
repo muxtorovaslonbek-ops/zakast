@@ -331,3 +331,17 @@
   transform: translateY(-3px);
   box-shadow: 0 18px 40px -18px oklch(0.5 0.2 262 / 0.45);
 }
+
+/* Intro video ochiq paytda sayt animatsiyalarini to'xtatish */
+body.intro-open .bg-blob {
+  display: none;
+}
+body.intro-open .hero-anim,
+body.intro-open .animate-floaty,
+body.intro-open .animate-pulse-glow,
+body.intro-open .animate-rise {
+  animation: none;
+}
+body.intro-open .glass-card {
+  backdrop-filter: none;
+}
