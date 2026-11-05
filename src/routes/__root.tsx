@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { useSavedBg } from "../components/BgSettings";
 
 function NotFoundComponent() {
   return (
@@ -121,6 +122,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useSavedBg();
 
   return (
     <QueryClientProvider client={queryClient}>
