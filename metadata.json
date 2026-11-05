@@ -1,0 +1,6 @@
+{
+  "name": "Navoiy shahar 8-maktab",
+  "description": "Navoiy shahar 8-maktab ta'lim platformasi: 9 ta xorijiy til, AI ustoz, to'garaklar va elektron kutubxona tizimi.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
