@@ -13,7 +13,6 @@ import {
   ArrowRight,
   Target,
   TrendingUp,
-  Moon,
   Sparkles,
   Crown,
   Cpu,
@@ -81,7 +80,6 @@ const clubs = [
 
 function Index() {
   const [active, setActive] = useState(0);
-  const [dark, setDark] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [intro, setIntro] = useState(false);
   const [settings, setSettings] = useState(false);
@@ -158,17 +156,6 @@ function Index() {
           >
             <Play className="h-4 w-4 fill-white" />
             Intro video
-          </button>
-          <button
-            onClick={() => setDark(!dark)}
-            className="mt-8 flex items-center gap-1 rounded-full bg-navy px-2 py-1"
-          >
-            <Moon className="h-4 w-4 text-yellow-400" />
-            <span className={`h-5 w-9 rounded-full bg-primary-foreground/90 p-0.5 transition`}>
-              <span
-                className={`block h-4 w-4 rounded-full bg-brand transition ${dark ? "translate-x-4" : ""}`}
-              />
-            </span>
           </button>
         </aside>
 
