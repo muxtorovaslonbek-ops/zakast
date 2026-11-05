@@ -16,6 +16,18 @@ export function Intro({ onClose }: IntroProps) {
   const [duration, setDuration] = useState(19.5);
   const [needsUserInteractionForAudio, setNeedsUserInteractionForAudio] = useState(false);
 
+  // onClose har renderda yangilanadi — effektni qayta ishga tushirmaslik uchun ref'da saqlaymiz
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  // Intro ochiq paytda sayt animatsiyalarini to'xtatib turish (qotishni kamaytiradi)
+  useEffect(() => {
+    document.body.classList.add("intro-open");
+    return () => document.body.classList.remove("intro-open");
+  }, []);
+
   // Auto-play attempt on mount — plays continuously without pausing
   useEffect(() => {
     const video = videoRef.current;
@@ -40,14 +52,14 @@ export function Intro({ onClose }: IntroProps) {
     }
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") onCloseRef.current();
     };
 
     window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("keydown", onKey);
     };
-  }, [onClose]);
+  }, []);
 
   const toggleMute = () => {
     const video = videoRef.current;
@@ -107,12 +119,11 @@ export function Intro({ onClose }: IntroProps) {
         src={introVideo}
         playsInline
         autoPlay
+        preload="auto"
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleVideoEnded}
         className="absolute inset-0 h-full w-full object-cover bg-black pointer-events-none"
       >
-        <source src={introVideo} type="video/mp4" />
-        <source src="/assets/aistudio/ai_darslar_intro_17a9f7c2.mp4" type="video/mp4" />
         Brauzeringiz video formatini qo‘llab-quvvatlamaydi.
       </video>
 
@@ -151,7 +162,7 @@ export function Intro({ onClose }: IntroProps) {
           <button
             onClick={toggleMute}
             aria-label={isMuted ? "Ovozni yoqish" : "Ovozni o‘chirish"}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition backdrop-blur-md cursor-pointer"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 hover:bg-white/30 border border-white/10 transition cursor-pointer"
             title={isMuted ? "Ovozni yoqish" : "Ovozni o‘chirish"}
           >
             {isMuted ? (
@@ -163,7 +174,7 @@ export function Intro({ onClose }: IntroProps) {
 
           <button
             onClick={onClose}
-            className="flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 px-3.5 py-1.5 text-xs font-semibold text-white/90 backdrop-blur-md transition hover:text-white cursor-pointer"
+            className="flex items-center gap-1.5 rounded-full bg-white/20 hover:bg-white/30 border border-white/10 px-3.5 py-1.5 text-xs font-semibold text-white/90 transition hover:text-white cursor-pointer"
           >
             <span>O‘tkazib yuborish</span>
             <X className="h-4 w-4" />
@@ -173,7 +184,7 @@ export function Intro({ onClose }: IntroProps) {
 
       {/* End Screen Overlay when video finishes */}
       {isEnded && (
-        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-gradient-to-t from-black/95 via-black/80 to-black/90 p-6 text-center backdrop-blur-sm animate-in fade-in duration-300">
+        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-gradient-to-t from-black/95 via-black/80 to-black/90 p-6 text-center animate-in fade-in duration-300">
           <img
             src={logo}
             alt="Logo"
