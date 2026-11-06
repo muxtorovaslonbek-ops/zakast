@@ -122,33 +122,33 @@ export function Intro({ onClose }: IntroProps) {
         preload="auto"
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleVideoEnded}
-        className="absolute inset-0 h-full w-full object-cover bg-black pointer-events-none"
+        className="absolute inset-0 h-full w-full object-contain lg:object-cover bg-black pointer-events-none"
       >
         Brauzeringiz video formatini qo‘llab-quvvatlamaydi.
       </video>
 
       {/* Top Header Bar floating over video */}
-      <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between p-4 sm:p-6 bg-gradient-to-b from-black/85 via-black/40 to-transparent">
-        <div className="flex items-center gap-3">
+      <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between gap-2 p-4 pt-[max(1rem,env(safe-area-inset-top))] sm:p-6 bg-gradient-to-b from-black/85 via-black/40 to-transparent">
+        <div className="flex min-w-0 items-center gap-3">
           <img
             src={logo}
             alt="Logo"
-            className="h-10 w-10 sm:h-12 sm:w-12 drop-shadow-[0_0_12px_rgba(99,102,241,0.6)]"
+            className="h-10 w-10 shrink-0 sm:h-12 sm:w-12 drop-shadow-[0_0_12px_rgba(99,102,241,0.6)]"
           />
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <h2 className="text-base font-bold tracking-tight text-white sm:text-lg">
+              <h2 className="truncate text-sm font-bold tracking-tight text-white sm:text-lg">
                 Navoiy shahar 8-maktab
               </h2>
               <span className="hidden rounded-full bg-indigo-500/20 border border-indigo-400/30 px-2.5 py-0.5 text-[11px] font-semibold text-indigo-300 sm:inline-flex items-center gap-1">
                 <Sparkles className="h-3 w-3" /> AI Darslar
               </span>
             </div>
-            <p className="text-xs text-white/70">Platformaning rasmiy video tanishtiruvi</p>
+            <p className="hidden truncate text-xs text-white/70 sm:block">Platformaning rasmiy video tanishtiruvi</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           {needsUserInteractionForAudio && isMuted && (
             <button
               onClick={toggleMute}
@@ -176,7 +176,7 @@ export function Intro({ onClose }: IntroProps) {
             onClick={onClose}
             className="flex items-center gap-1.5 rounded-full bg-white/20 hover:bg-white/30 border border-white/10 px-3.5 py-1.5 text-xs font-semibold text-white/90 transition hover:text-white cursor-pointer"
           >
-            <span>O‘tkazib yuborish</span>
+            <span className="hidden min-[420px]:inline">O‘tkazib yuborish</span>
             <X className="h-4 w-4" />
           </button>
         </div>
@@ -184,7 +184,7 @@ export function Intro({ onClose }: IntroProps) {
 
       {/* End Screen Overlay when video finishes */}
       {isEnded && (
-        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-gradient-to-t from-black/95 via-black/80 to-black/90 p-6 text-center animate-in fade-in duration-300">
+        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center overflow-y-auto bg-gradient-to-t from-black/95 via-black/80 to-black/90 p-6 text-center animate-in fade-in duration-300">
           <img
             src={logo}
             alt="Logo"
@@ -216,7 +216,7 @@ export function Intro({ onClose }: IntroProps) {
       )}
 
       {/* Video Control Bar at Bottom floating over video */}
-      <div className="absolute bottom-0 inset-x-0 z-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 sm:p-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute bottom-0 inset-x-0 z-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:p-6 opacity-0 hover:opacity-100 max-lg:opacity-100 transition-opacity duration-300">
         {/* Scrubber / Progress Bar */}
         <div
           className="relative mb-3 h-1.5 w-full cursor-pointer rounded-full bg-white/20 transition hover:h-2"
