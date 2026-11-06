@@ -29,6 +29,7 @@ import gift from "@/assets/gift.png";
 import logo from "@/assets/logo.png";
 import { Intro } from "@/components/Intro";
 import { BgSettings } from "@/components/BgSettings";
+import { MobileHome } from "@/components/MobileHome";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -95,6 +96,12 @@ function Index() {
       {settings && <BgSettings onClose={() => setSettings(false)} />}
       <span className="bg-blob left-[30%] top-[10%] h-72 w-72 bg-brand" />
       <span className="bg-blob right-[5%] bottom-[5%] h-80 w-80 bg-brand-glow [animation-delay:-5s]" />
+      {/* Telefon (< 768px) */}
+      <div className="md:hidden">
+        <MobileHome onOpenIntro={() => setIntro(true)} onOpenSettings={() => setSettings(true)} />
+      </div>
+      {/* Kompyuter (>= 768px) — avvalgidek */}
+      <div className="hidden md:block">
       <div
         className="flex min-h-screen w-[1280px] bg-app font-sans text-ink"
         style={{ zoom, minHeight: `${100 / zoom}vh` }}
@@ -369,6 +376,7 @@ function Index() {
             </section>
           </div>
         </main>
+      </div>
       </div>
     </>
   );
