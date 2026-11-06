@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: "Navoiy shahar 8-maktab" },
       { name: "description", content: "Navoiy 8-maktab ta’lim platformasi" },
       { name: "author", content: "Lovable" },
